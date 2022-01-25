@@ -28,10 +28,10 @@ node {
 		git branch: 'main', credentialsId: 'my-git-credential', url: 'https://github.com/ggue/kubernetes.git'
 	
 		// 디렉토리가 존재할때
-	//	dir('') {
+		dir('hostpy') {
 			def ecrRepo = "179460961317.dkr.ecr.ap-northeast-2.amazonaws.com\\/fake-ecr"
 			sh "cat fake-ecr.yaml | sed -i \'s/${ecrRepo}:.*\$/${ecrRepo}:${env.BUILD_ID}/g\' fake-ecr.yaml"
-	//	}
+		}
 
 		withCredentials([usernamePassword(credentialsId: 'my-git-credential', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASSWORD')]) 
 		{
