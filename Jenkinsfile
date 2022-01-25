@@ -45,4 +45,4 @@ node {
 			sh "git push 'https://github.com/ggue/test-k8s.git'"
 		}
 	}
-}	  
+}	     
