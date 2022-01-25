@@ -25,7 +25,7 @@ node {
 	stage('commit container tag to yaml') {
 		// 이전에 있던것들이 좀꼬일수 있어서 문제가 될수있음
 		sh 'rm -rf ./*'
-		git branch: 'main', credentialsId: 'my-git-credential', url: 'https://github.com/ggue/kubernetes.git'
+		git branch: 'main', credentialsId: 'my-git-credential', url: 'https://github.com/ggue/test-k8s.git'
 	
 		// 디렉토리가 존재할때
 		dir('hostpy') {
@@ -42,7 +42,7 @@ node {
 		
 			sh "git add fake-ecr.yaml"
 			sh "git commit -m 'change container image tag ${env.BUILD_ID}'"
-			sh "git push 'https://github.com/ggue/kubernetes.git'"
+			sh "git push 'https://github.com/ggue/test-k8s.git'"
 		}
 	}
 }	  
