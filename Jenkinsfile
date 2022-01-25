@@ -40,7 +40,7 @@ node {
 			sh 'git config --global user.email "jenkins@example.com"'
 			sh 'git config --global user.name "jenkins"'
 		
-			sh "git add mysite.yaml"
+			sh "git add hostpy/mysite.yaml"
 			sh "git commit -m 'change container image tag ${env.BUILD_ID}'"
 			sh "git push 'https://github.com/ggue/test-k8s.git'"
 		}
